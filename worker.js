@@ -1,42 +1,42 @@
-const TOKEN = ENV_BOT_TOKEN // Get it from @BotFather
-const WEBHOOK = '/endpoint'
-const SECRET = ENV_BOT_SECRET // A-Z, a-z, 0-9, _ and -
-const ADMIN_UID = ENV_ADMIN_UID // your user id, get it from https://t.me/username_to_id_bot
+const  TOKEN = ENV_BOT_TOKEN // 从@BotFather 获取
+const  WEBHOOK = '/端点'
+const  SECRET = ENV_BOT_SECRET // AZ、az、0-9、_ 和 -
+const  ADMIN_UID = ENV_ADMIN_UID // 你的用户 ID，从 https://t.me/username_to_id_bot 获取
 
-const NOTIFY_INTERVAL = 3600 * 1000;
-const fraudDb = 'https://raw.githubusercontent.com/LloydAsp/nfd/main/data/fraud.db';
-const notificationUrl = 'https://raw.githubusercontent.com/LloydAsp/nfd/main/data/notification.txt'
-const startMsgUrl = 'https://raw.githubusercontent.com/LloydAsp/nfd/main/data/startMessage.md';
+const  NOTIFY_INTERVAL = 3600 * 1000 ;
+const  cheatDb = 'https://raw.githubusercontent.com/LloydAsp/nfd/main/data/fraud.db' ;
+const  notificationUrl = 'https://raw.githubusercontent.com/LloydAsp/nfd/main/data/notification.txt'
+const  startMsgUrl = 'https://raw.githubusercontent.com/LloydAsp/nfd/main/data/startMessage.md' ;
 
-const enable_notification = true
+const  enable_notification = true
 /**
- * Return url to telegram api, optionally with parameters added
- */
-function apiUrl (methodName, params = null) {
-  let query = ''
-  if (params) {
-    query = '?' + new URLSearchParams(params).toString()
+* 返回电报 api 的 url，可选择添加参数
+*/
+函数apiUrl   (方法名称，params = null  )   {
+  让查询= ''
+  如果 （参数）{
+    查询 = '?' + new URLSearchParams ( params ) . toString  (  )
   }
-  return `https://api.telegram.org/bot${TOKEN}/${methodName}${query}`
+  返回 `https://api.telegram.org/bot ${ TOKEN } / ${ methodName } ${ query } ` 
 }
 
-function requestTelegram(methodName, body, params = null){
-  return fetch(apiUrl(methodName, params), body)
-    .then(r => r.json())
+函数requestTelegram  (方法名称，主体，参数= null  )  {
+  返回 fetch （apiUrl （ methodName，params ），body ）
+    .然后（r => r.json （））
 }
 
-function makeReqBody(body){
-  return {
-    method:'POST',
-    headers:{
-      'content-type':'application/json'
-    },
-    body:JSON.stringify(body)
+函数 makeReqBody ( body ) {
+  返回 {
+    方法：'POST'，
+    标题：{
+      ‘内容类型’：‘应用程序/json’
+    }，
+    主体： JSON.stringify （主体）
   }
 }
 
-function sendMessage(msg = {}){
-  return requestTelegram('sendMessage', makeReqBody(msg))
+函数 发送消息（msg = { } ）{
+  返回 requestTelegram ( 'sendMessage'，makeReqBody ( msg ) )
 }
 
 function copyMessage(msg = {}){
@@ -56,10 +56,10 @@ addEventListener('fetch', event => {
     event.respondWith(handleWebhook(event))
   } else if (url.pathname === '/registerWebhook') {
     event.respondWith(registerWebhook(event, url, WEBHOOK, SECRET))
-  } else if (url.pathname === '/unRegisterWebhook') {
-    event.respondWith(unRegisterWebhook(event))
-  } else {
-    event.respondWith(new Response('No handler for this request'))
+  } 否则， 如果 （ url。路径名=== '/unRegisterWebhook' ） {
+    事件.respondWith ( unRegisterWebhook (事件) )
+  } 别的 {
+    event.respondWith ( new Response ( '此请求没有处理程序' ) )
   }
 })
 
