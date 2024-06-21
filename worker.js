@@ -6,7 +6,7 @@ const  ADMIN_UID = ENV_ADMIN_UID // 你的用户 ID，从 https://t.me/username_
 const  NOTIFY_INTERVAL = 3600 * 1000 ;
 const  cheatDb = 'https://raw.githubusercontent.com/LloydAsp/nfd/main/data/fraud.db' ;
 const  notificationUrl = 'https://raw.githubusercontent.com/LloydAsp/nfd/main/data/notification.txt'
-const  startMsgUrl = 'https://raw.githubusercontent.com/LloydAsp/nfd/main/data/startMessage.md' ;
+const  startMsgUrl = 'https://raw.githubusercontent.com/chendingzhun/xianye/main/qd.md' ;
 
 const  enable_notification = true
 /**
