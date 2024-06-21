@@ -1,2 +1,2 @@
-🤖<a href="@xianyekefu_bot">定制联系双向机器人</a>
+🤖[定制双向机器人  ]（@xianyekefu_bot）
 请下方发送消息！👇
