@@ -37,3 +37,13 @@ No Fraud / Node Forward Bot
 
 ## Thanks
 - [telegram-bot-cloudflare](https://github.com/cvzi/telegram-bot-cloudflare)
+
+
+
+https://github.com/LloydAsp/nfd/blob/main/worker.js  Workers代码
+
+https://www.cloudflare.com/zh-cn/   Cloud  flare官网
+
+https://github.com/LloydAsp/nfd   开源地址
+
+https://www.uuidgenerator.net/  获取随机UUID
