@@ -107,7 +107,7 @@ async function onMessage (message) {
     if(!message?.reply_to_message?.chat){
       return sendMessage({
         chat_id:ADMIN_UID,
-        text:'使用方法，回复转发的消息，并发送回复消息，或者`/block`、`/unblock`、`/checkblock`等指令'
+        text:'使用方法：\n回复转发的消息，并发送回复消息\n\n相关指令：\n【封禁】/block \n【解除封禁】/unblock \n【查询状态】/checkblock'
       })
     }
     if(/^\/block$/.exec(message.text)){
@@ -137,7 +137,7 @@ async function handleGuestMessage(message){
   if(isblocked){
     return sendMessage({
       chat_id: chatId,
-      text:'Your are blocked'
+      text:'您已被关进小黑屋Your are blocked'
     })
   }
 
@@ -160,7 +160,7 @@ async function handleNotify(message){
   if(await isFraud(chatId)){
     return sendMessage({
       chat_id: ADMIN_UID,
-      text:`检测到骗子，UID${chatId}`
+      text:`系统检测到骗子，UID${chatId}`
     })
   }
   if(enable_notification){
